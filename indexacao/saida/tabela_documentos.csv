@@ -1,0 +1,21 @@
+﻿DocId;Título;Autor;Total de termos significativos
+1;Adoção de SGBDs NoSQL em Empresas Brasileiras: um Levantamento Preliminar;"Nicolas Atmatzides; Marcos Bedo; Daniel de Oliveira";44
+2;Data Lakes Lógicos Como Plataformas Para Dados Governamentais em Sociedades e Cidades Inteligentes;"Geymerson S. Ramos; Danilo Fernandes; Jorge Artur P. de M. Coelho; Andre L. L. Aquino";48
+3;Data Lakes Orientados por Metadados: um Estudo Exploratório sobre Governança e Proveniência;"Márcio Ortolan; Felipe Ivo da Silva; Marilde Terezinha Prado Santos";95
+4;Ensino de Engenharia de Dados nas Universidades Brasileiras: Estado Atual e Perspectivas de Mercado;"Tarsis Azevedo; Altigran da Silva";103
+5;Estudo Comparativo de Banco de Dados NoSQL para Gerenciamento de Séries Espaço-Temporais;"Luís Eduardo Damasceno; Melise Maria V. de Paula; Vanessa Cristina O. de Souza; Flávio Belizário da Silva Mota";66
+6;FLAMI vs GADDS: Estudo Comparativo de Arquiteturas de Big Data Aderentes aos Princípios FAIR;"Cecíla Nunes Sedenho; Thiago Zero Araujo; João Pedro de Carvalho Castro; Cristina Dutra Aguiar";57
+7;Governança de Dados em Sistemas-de-Sistemas: Uma Abordagem Orientada à Dados de Proveniência;"Jessica Monçôres de Almeida; Vanessa Braganholo; Daniel de Oliveira";53
+8;Integração de Dados com Open Finance para Gestão Financeira Pessoal;"Lucas Martins de Barros; Helena Graziottin Ribeiro";48
+9;Metodologias e ferramentas de governança de dados aplicadas ao gerenciamento de data lakes: uma revisão sistemática;"Wyllyany C. Santos; David H. S. Lima; Carlos A. F. Silva; Márcio R. C. Ferro";55
+10;Migração de Bancos de Dados Relacionais para Grafos: Proposta e Implementação de uma Ferramenta Automatizada;"Gabriel Lisboa Conegero; Carmem S. Hara";77
+11;O uso de Data Mart para apoio à tomada de decisão na Gestão de Pessoas em uma Instituição Federal de Ensino;"Edivaldo da Silva Souza; Luiz Antônio Abrantes; Jugurta Lisboa-Filho";55
+12;Os desafios e soluções para a implementação de Big Data Analytics em cidades inteligentes;"Felipe F. Vasconcelos; Vinicius T. Ramos; Fábio J. Coutinho";55
+13;RPAs e Data Lakes para a Indústria 4.0: Um Estudo de Caso de Ecossistema de Dados Integrados;"Arthur Lucas dos S. Bezerra; Iranildo S. Batalha; Luís Ricardo A. Filho; Clarice M. Almeida; Matheus Inácio N. Dantas; Nelson A. Gouvêa";49
+14;Um Levantamento sobre Sistemas de Gerenciamento de Bancos de Dados NoSQL Multimodelo;"Amanda Christoval da Veiga de Aquino; Ronaldo dos Santos Mello";66
+15;Um método para captura e compartilhamento de dados abertos educacionais via um processo ETL;"Fabio A. Rodrigues; Cristiano Maciel";37
+16;Uma Abordagem Experimental para Avaliar o Desempenho do Banco de Dados Open-Source PostgreSQL;"Herderson Couto; Francisco Airton Silva; Gustavo Callou; Ermeson Andrade";82
+17;Uma Abordagem para a Gestão da Linhagem de Dados Heterogêneos;"Hudson A. B. da Silva; José E. M. Jochem; João V. dos Santos; Eduardo F. R. de Sousa; Ronaldo dos S. Mello; Carina F. Dorneles; Renato Fileto";54
+18;Uma Análise de Soluções NewSQL;"Ronan R. Knob; Geomar A. Schreiner; Angelo A. Frozza; Ronaldo dos Santos Mello";64
+19;Uma Arquitetura de Data Lake de Dados Ambientais e Socioeconômicos para Fomentar Pesquisa e Inovação;"Aderaldo Neto; Mateus Neres; Marcus Carvalho";54
+20;Uma proposta de data lake para pesquisa em saúde a partir de data pools multicêntricos interoperáveis;"Daniel M. Lima; Ramon A. Moreno; Fabio A. Pires; Marco A. Gutierrez";60

@@ -1,0 +1,183 @@
+AVALIAÇÃO DAS 5 CONSULTAS DE TESTE — Booleano × Espaço Vetorial
+
+Teste  Relev. | Bool rec     P     R |  Vet rec     P     R    P@5    R@5
+-------------------------------------------------------------------------
+T1          2 |        3  0.67  1.00 |       13  0.15  1.00   0.40   1.00
+T2          2 |        1  1.00  0.50 |        9  0.22  1.00   0.20   0.50
+T3          0 |        0   n/d   n/d |        0   n/d   n/d    n/d    n/d
+T4          3 |        0   n/d  0.00 |        3  1.00  1.00   1.00   1.00
+T5          3 |        3  1.00  1.00 |        4  0.25  0.33   0.25   0.33
+n/d = indefinida (divisão 0/0: nada recuperado ou nenhum relevante)
+
+T1 — Governança em data lakes
+======================================================================
+Necessidade de informação: Artigos cujo foco é a governança de dados aplicada a data lakes.
+O que demonstra: Caso de sucesso: necessidade bem descrita pelos termos do vocabulário.
+
+JULGAMENTO DE RELEVÂNCIA (definido a priori, antes de rodar os modelos):
+   Doc  3  Data Lakes Orientados por Metadados: um Estudo Exploratório sobre Governança e Proveniência
+            -> governança de metadados e proveniência em data lakes (tema central)
+   Doc  9  Metodologias e ferramentas de governança de dados aplicadas ao gerenciamento de data lakes: uma revisão sistemática
+            -> revisão sistemática de governança aplicada ao gerenciamento de data lakes
+   Considerados NÃO relevantes (apesar de terem termos parecidos):
+   Doc  2  -> arquitetura de data lake governamental; governança só citada como característica
+   Doc  7  -> governança de dados, mas em sistemas-de-sistemas (não data lake)
+   Doc 17  -> governança via linhagem de dados, sem data lake
+
+MODELO BOOLEANO — consulta: governança AND (lake OR lakes)
+   Expressão interpretada: (governança AND (lake OR lakes))
+   governança: [2, 3, 7, 9, 17]
+   lake: [2, 9, 13, 19]
+   lakes: [2, 3, 9, 20]
+   ✘ Doc  2  Data Lakes Lógicos Como Plataformas Para Dados Governamentais em Sociedades e Cidades Inteligentes
+   ✔ Doc  3  Data Lakes Orientados por Metadados: um Estudo Exploratório sobre Governança e Proveniência
+   ✔ Doc  9  Metodologias e ferramentas de governança de dados aplicadas ao gerenciamento de data lakes: uma revisão sistemática
+   Precisão = 0.67   Revocação = 1.00   F1 = 0.80   (2 relevantes de 3 recuperados)
+
+MODELO ESPAÇO VETORIAL — consulta: governança de dados em data lakes
+   Termos após pré-processamento: governança, data, lakes
+    1. ✔ sim=0.1722  Doc  3  Data Lakes Orientados por Metadados: um Estudo Exploratório sobre Governança e Proveniência
+    2. ✔ sim=0.1665  Doc  9  Metodologias e ferramentas de governança de dados aplicadas ao gerenciamento de data lakes: uma revisão sistemática
+    3. ✘ sim=0.1366  Doc  2  Data Lakes Lógicos Como Plataformas Para Dados Governamentais em Sociedades e Cidades Inteligentes
+    4. ✘ sim=0.1365  Doc 20  Uma proposta de data lake para pesquisa em saúde a partir de data pools multicêntricos interoperáveis
+    5. ✘ sim=0.0863  Doc  7  Governança de Dados em Sistemas-de-Sistemas: Uma Abordagem Orientada à Dados de Proveniência
+    6. ✘ sim=0.0433  Doc 17  Uma Abordagem para a Gestão da Linhagem de Dados Heterogêneos
+    7. ✘ sim=0.0237  Doc 19  Uma Arquitetura de Data Lake de Dados Ambientais e Socioeconômicos para Fomentar Pesquisa e Inovação
+    8. ✘ sim=0.0153  Doc 11  O uso de Data Mart para apoio à tomada de decisão na Gestão de Pessoas em uma Instituição Federal de Ensino
+    9. ✘ sim=0.0132  Doc  5  Estudo Comparativo de Banco de Dados NoSQL para Gerenciamento de Séries Espaço-Temporais
+   10. ✘ sim=0.0095  Doc 13  RPAs e Data Lakes para a Indústria 4.0: Um Estudo de Caso de Ecossistema de Dados Integrados
+   11. ✘ sim=0.0080  Doc 12  Os desafios e soluções para a implementação de Big Data Analytics em cidades inteligentes
+   12. ✘ sim=0.0073  Doc  6  FLAMI vs GADDS: Estudo Comparativo de Arquiteturas de Big Data Aderentes aos Princípios FAIR
+   13. ✘ sim=0.0069  Doc 18  Uma Análise de Soluções NewSQL
+   Lista completa (sim > 0): Precisão = 0.15   Revocação = 1.00   F1 = 0.27
+   Top-5:                 P@5 = 0.40   R@5 = 1.00
+
+T2 — Desempenho de SGBDs NoSQL/NewSQL (aninhada)
+======================================================================
+Necessidade de informação: Avaliações experimentais de desempenho de SGBDs NoSQL ou NewSQL (levantamentos/surveys não interessam).
+O que demonstra: Consulta booleana com operadores ANINHADOS (OR dentro de AND, mais NOT). Também expõe o problema de vocabulário: o resumo do doc 5 cita 'MongoDB' e 'InfluxDB', mas não a palavra 'NoSQL' (que só está no título).
+
+JULGAMENTO DE RELEVÂNCIA (definido a priori, antes de rodar os modelos):
+   Doc  5  Estudo Comparativo de Banco de Dados NoSQL para Gerenciamento de Séries Espaço-Temporais
+            -> compara o desempenho do MongoDB e do InfluxDB (NoSQL) com séries espaço-temporais
+   Doc 18  Uma Análise de Soluções NewSQL
+            -> compara produtos NewSQL usando benchmarks
+   Considerados NÃO relevantes (apesar de terem termos parecidos):
+   Doc  1  -> levantamento sobre adoção de NoSQL, sem avaliação de desempenho
+   Doc 14  -> levantamento de SGBDs NoSQL multimodelo (survey)
+   Doc 16  -> avaliação de desempenho, mas do PostgreSQL (relacional)
+
+MODELO BOOLEANO — consulta: (nosql OR newsql) AND (desempenho OR benchmarks) AND NOT levantamento
+   Expressão interpretada: (((nosql OR newsql) AND (desempenho OR benchmarks)) AND NOT levantamento)
+   nosql: [1, 14, 18]
+   newsql: [18]
+   desempenho: [4, 5, 11, 13, 14, 16]
+   benchmarks: [18]
+   levantamento: [1, 14]
+   ✔ Doc 18  Uma Análise de Soluções NewSQL
+   Precisão = 1.00   Revocação = 0.50   F1 = 0.67   (1 relevantes de 1 recuperados)
+
+MODELO ESPAÇO VETORIAL — consulta: desempenho de bancos NoSQL e NewSQL
+   Termos após pré-processamento: desempenho, bancos, nosql, newsql
+    1. ✔ sim=0.3836  Doc 18  Uma Análise de Soluções NewSQL
+    2. ✘ sim=0.1277  Doc  1  Adoção de SGBDs NoSQL em Empresas Brasileiras: um Levantamento Preliminar
+    3. ✘ sim=0.1161  Doc 14  Um Levantamento sobre Sistemas de Gerenciamento de Bancos de Dados NoSQL Multimodelo
+    4. ✘ sim=0.1030  Doc 16  Uma Abordagem Experimental para Avaliar o Desempenho do Banco de Dados Open-Source PostgreSQL
+    5. ✘ sim=0.0692  Doc 10  Migração de Bancos de Dados Relacionais para Grafos: Proposta e Implementação de uma Ferramenta Automatizada
+    6. ✔ sim=0.0281  Doc  5  Estudo Comparativo de Banco de Dados NoSQL para Gerenciamento de Séries Espaço-Temporais
+    7. ✘ sim=0.0203  Doc 13  RPAs e Data Lakes para a Indústria 4.0: Um Estudo de Caso de Ecossistema de Dados Integrados
+    8. ✘ sim=0.0163  Doc 11  O uso de Data Mart para apoio à tomada de decisão na Gestão de Pessoas em uma Instituição Federal de Ensino
+    9. ✘ sim=0.0106  Doc  4  Ensino de Engenharia de Dados nas Universidades Brasileiras: Estado Atual e Perspectivas de Mercado
+   Lista completa (sim > 0): Precisão = 0.22   Revocação = 1.00   F1 = 0.36
+   Top-5:                 P@5 = 0.20   R@5 = 0.50
+
+T3 — Blockchain e criptografia (vazia)
+======================================================================
+Necessidade de informação: Uso de blockchain ou criptografia para proteger dados.
+O que demonstra: Consulta com resultado VAZIO: nenhum artigo da base trata do tema; o correto é nenhum dos dois modelos devolver documentos.
+
+JULGAMENTO DE RELEVÂNCIA (definido a priori, antes de rodar os modelos):
+   (nenhum documento relevante na base)
+
+MODELO BOOLEANO — consulta: blockchain OR criptografia
+   Expressão interpretada: (blockchain OR criptografia)
+   blockchain: []
+   criptografia: []
+   (nenhum documento recuperado)
+   Precisão = n/d   Revocação = n/d   F1 = n/d   (0 relevantes de 0 recuperados)
+
+MODELO ESPAÇO VETORIAL — consulta: blockchain e criptografia de dados
+   Termos após pré-processamento: blockchain, criptografia
+   Fora do vocabulário da coleção: blockchain, criptografia
+   (nenhum documento recuperado)
+   Lista completa (sim > 0): Precisão = n/d   Revocação = n/d   F1 = n/d
+   Top-5:                 P@5 = n/d   R@5 = n/d
+
+   => Correto: não há relevantes e nenhum modelo devolveu documentos (precisão e revocação ficam indefinidas, 0/0).
+
+T4 — Proveniência / linhagem (limitação do booleano)
+======================================================================
+Necessidade de informação: Rastreabilidade do ciclo de vida dos dados: proveniência e linhagem de dados.
+O que demonstra: LIMITAÇÃO DO MODELO BOOLEANO: o AND é tudo-ou-nada. Cada artigo relevante usa só parte dos termos, então a interseção é vazia (revocação 0), enquanto o vetorial aceita casamento parcial e ranqueia os três.
+
+JULGAMENTO DE RELEVÂNCIA (definido a priori, antes de rodar os modelos):
+   Doc  3  Data Lakes Orientados por Metadados: um Estudo Exploratório sobre Governança e Proveniência
+            -> governança de metadados com proveniência em data lakes
+   Doc  7  Governança de Dados em Sistemas-de-Sistemas: Uma Abordagem Orientada à Dados de Proveniência
+            -> governança baseada em dados de proveniência e rastreabilidade em SoS
+   Doc 17  Uma Abordagem para a Gestão da Linhagem de Dados Heterogêneos
+            -> gestão da linhagem de dados com rastreabilidade
+
+MODELO BOOLEANO — consulta: proveniência AND linhagem AND rastreabilidade
+   Expressão interpretada: ((proveniência AND linhagem) AND rastreabilidade)
+   proveniência: [3, 7]
+   linhagem: [17]
+   rastreabilidade: [7, 17]
+   (nenhum documento recuperado)
+   Precisão = n/d   Revocação = 0.00   F1 = n/d   (0 relevantes de 0 recuperados)
+
+MODELO ESPAÇO VETORIAL — consulta: proveniência, linhagem e rastreabilidade de dados
+   Termos após pré-processamento: proveniência, linhagem, rastreabilidade
+    1. ✔ sim=0.1606  Doc 17  Uma Abordagem para a Gestão da Linhagem de Dados Heterogêneos
+    2. ✔ sim=0.1187  Doc  7  Governança de Dados em Sistemas-de-Sistemas: Uma Abordagem Orientada à Dados de Proveniência
+    3. ✔ sim=0.0458  Doc  3  Data Lakes Orientados por Metadados: um Estudo Exploratório sobre Governança e Proveniência
+   Lista completa (sim > 0): Precisão = 1.00   Revocação = 1.00   F1 = 1.00
+   Top-5:                 P@5 = 1.00   R@5 = 1.00
+
+T5 — Bancos relacionais (limitação do vetorial)
+======================================================================
+Necessidade de informação: Artigos que tratam de bancos de dados relacionais.
+O que demonstra: LIMITAÇÃO DO MODELO VETORIAL (sem radicalização/stemming e sem semântica): 'relacional' e 'relacionais', 'banco' e 'bancos' são termos diferentes no vetor. A consulta em linguagem natural casa apenas com 'banco', e devolve artigos de NoSQL, perdendo os docs 10 e 18. No booleano o usuário pode listar as variações com OR aninhado e acertar tudo.
+
+JULGAMENTO DE RELEVÂNCIA (definido a priori, antes de rodar os modelos):
+   Doc 10  Migração de Bancos de Dados Relacionais para Grafos: Proposta e Implementação de uma Ferramenta Automatizada
+            -> migração de bancos relacionais para grafos
+   Doc 16  Uma Abordagem Experimental para Avaliar o Desempenho do Banco de Dados Open-Source PostgreSQL
+            -> avaliação de desempenho do PostgreSQL (SGBD relacional)
+   Doc 18  Uma Análise de Soluções NewSQL
+            -> NewSQL como alternativa aos bancos relacionais (BDRs) em transações OLTP
+   Considerados NÃO relevantes (apesar de terem termos parecidos):
+   Doc  1  -> SGBDs NoSQL (cita 'banco de dados', mas não relacional)
+   Doc 11  -> Data Mart / banco multidimensional
+   Doc 14  -> SGBDs NoSQL multimodelo
+
+MODELO BOOLEANO — consulta: (relacional OR relacionais) AND (banco OR bancos)
+   Expressão interpretada: ((relacional OR relacionais) AND (banco OR bancos))
+   relacional: [16]
+   relacionais: [10, 18]
+   banco: [1, 11, 14, 16]
+   bancos: [10, 16, 18]
+   ✔ Doc 10  Migração de Bancos de Dados Relacionais para Grafos: Proposta e Implementação de uma Ferramenta Automatizada
+   ✔ Doc 16  Uma Abordagem Experimental para Avaliar o Desempenho do Banco de Dados Open-Source PostgreSQL
+   ✔ Doc 18  Uma Análise de Soluções NewSQL
+   Precisão = 1.00   Revocação = 1.00   F1 = 1.00   (3 relevantes de 3 recuperados)
+
+MODELO ESPAÇO VETORIAL — consulta: banco de dados relacional
+   Termos após pré-processamento: banco, relacional
+    1. ✔ sim=0.1820  Doc 16  Uma Abordagem Experimental para Avaliar o Desempenho do Banco de Dados Open-Source PostgreSQL
+    2. ✘ sim=0.0439  Doc  1  Adoção de SGBDs NoSQL em Empresas Brasileiras: um Levantamento Preliminar
+    3. ✘ sim=0.0361  Doc 11  O uso de Data Mart para apoio à tomada de decisão na Gestão de Pessoas em uma Instituição Federal de Ensino
+    4. ✘ sim=0.0345  Doc 14  Um Levantamento sobre Sistemas de Gerenciamento de Bancos de Dados NoSQL Multimodelo
+   Lista completa (sim > 0): Precisão = 0.25   Revocação = 0.33   F1 = 0.29
+   Top-5:                 P@5 = 0.25   R@5 = 0.33
+
